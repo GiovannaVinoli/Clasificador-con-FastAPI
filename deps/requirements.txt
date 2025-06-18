@@ -1,0 +1,5 @@
+pandas
+numpy
+nltk
+"fastapi[standard]" uvicorn
+-U scikit-learn
