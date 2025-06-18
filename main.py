@@ -1,24 +1,16 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
-
-
-from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from typing import List
 import pickle
-# import nltk
-# nltk.download('punkt')           # tokenizador base de oraciones
-# nltk.download('stopwords')       # lista de palabras vacías
-# nltk.download('punkt_tab')       # << este es el que falta, según el traceback
 
-# Cargamos el clasificador una sola vez
+# Cargamos el clasificador 
 with open('./data/claims_clf.pkl', 'rb') as archivo:
     clf = pickle.load(archivo)
 
 # Inicializar app
 app = FastAPI()
 
-# Luego tus clases y endpoints 👇
 class ReclamosRequest(BaseModel):
     textos: List[str]
 
